@@ -44,15 +44,9 @@ exports[`validate options should throw an error on the "additionalCode" option w
 
 exports[`validate options should throw an error on the "imports" option with "" value 1`] = `
 "Invalid options object. Imports Loader has been initialized using an options object that does not match the API schema.
- - options.imports should be one of these:
-   non-empty string | non-empty string | object { moduleName, syntax?, name?, alias? } | [non-empty string | object { moduleName, syntax?, name?, alias? }, ...] (should not have fewer than 1 item)
-   Details:
-    * options.imports should be a non-empty string.
-      -> Allows to use a string to describe an import.
-      -> Read more at https://webpack.js.org/loaders/imports-loader/#string
-    * options.imports should be a non-empty string.
-      -> Allows to use a string to describe an import.
-      -> Read more at https://webpack.js.org/loaders/imports-loader/#string"
+ - options.imports should be a non-empty string.
+   -> Allows to use a string to describe an import.
+   -> Read more at https://webpack.js.org/loaders/imports-loader/#string"
 `;
 
 exports[`validate options should throw an error on the "imports" option with "/test/" value 1`] = `
@@ -87,14 +81,14 @@ exports[`validate options should throw an error on the "imports" option with "{"
 exports[`validate options should throw an error on the "imports" option with "{"type":"string","moduleName":"jQuery","list":false}" value 1`] = `
 "Invalid options object. Imports Loader has been initialized using an options object that does not match the API schema.
  - options.imports should be one of these:
-   non-empty string | non-empty string | object { moduleName, syntax?, name?, alias? } | [non-empty string | object { moduleName, syntax?, name?, alias? }, ...] (should not have fewer than 1 item)
+   non-empty string | non-empty string | object { moduleName: non-empty string, syntax?, name?: non-empty string, alias?: non-empty string } | [non-empty string | object { moduleName: non-empty string, syntax?, name?: non-empty string, alias?: non-empty string }, ...] (should not have fewer than 1 item)
    Details:
     * options.imports has an unknown property 'type'. These properties are valid:
-      object { moduleName, syntax?, name?, alias? }
+      object { moduleName: non-empty string, syntax?, name?: non-empty string, alias?: non-empty string }
       -> Allows to use an object to describe an import.
       -> Read more at https://webpack.js.org/loaders/imports-loader/#object
     * options.imports has an unknown property 'list'. These properties are valid:
-      object { moduleName, syntax?, name?, alias? }
+      object { moduleName: non-empty string, syntax?, name?: non-empty string, alias?: non-empty string }
       -> Allows to use an object to describe an import.
       -> Read more at https://webpack.js.org/loaders/imports-loader/#object"
 `;
@@ -108,45 +102,39 @@ exports[`validate options should throw an error on the "imports" option with "{}
 exports[`validate options should throw an error on the "imports" option with "false" value 1`] = `
 "Invalid options object. Imports Loader has been initialized using an options object that does not match the API schema.
  - options.imports should be one of these:
-   non-empty string | non-empty string | object { moduleName, syntax?, name?, alias? } | [non-empty string | object { moduleName, syntax?, name?, alias? }, ...] (should not have fewer than 1 item)
+   non-empty string | non-empty string | object { moduleName: non-empty string, syntax?, name?: non-empty string, alias?: non-empty string } | [non-empty string | object { moduleName: non-empty string, syntax?, name?: non-empty string, alias?: non-empty string }, ...] (should not have fewer than 1 item)
    Details:
     * options.imports should be one of these:
-      non-empty string | object { moduleName, syntax?, name?, alias? }
+      non-empty string | object { moduleName: non-empty string, syntax?, name?: non-empty string, alias?: non-empty string }
       Details:
        * options.imports should be a non-empty string.
          -> Allows to use a string to describe an import.
          -> Read more at https://webpack.js.org/loaders/imports-loader/#string
-       * options.imports should be a non-empty string.
-         -> Allows to use a string to describe an import.
-         -> Read more at https://webpack.js.org/loaders/imports-loader/#string
        * options.imports should be an object:
-         object { moduleName, syntax?, name?, alias? }
+         object { moduleName: non-empty string, syntax?, name?: non-empty string, alias?: non-empty string }
          -> Allows to use an object to describe an import.
          -> Read more at https://webpack.js.org/loaders/imports-loader/#object
     * options.imports should be an array:
-      [non-empty string | object { moduleName, syntax?, name?, alias? }, ...] (should not have fewer than 1 item)"
+      [non-empty string | object { moduleName: non-empty string, syntax?, name?: non-empty string, alias?: non-empty string }, ...] (should not have fewer than 1 item)"
 `;
 
 exports[`validate options should throw an error on the "imports" option with "true" value 1`] = `
 "Invalid options object. Imports Loader has been initialized using an options object that does not match the API schema.
  - options.imports should be one of these:
-   non-empty string | non-empty string | object { moduleName, syntax?, name?, alias? } | [non-empty string | object { moduleName, syntax?, name?, alias? }, ...] (should not have fewer than 1 item)
+   non-empty string | non-empty string | object { moduleName: non-empty string, syntax?, name?: non-empty string, alias?: non-empty string } | [non-empty string | object { moduleName: non-empty string, syntax?, name?: non-empty string, alias?: non-empty string }, ...] (should not have fewer than 1 item)
    Details:
     * options.imports should be one of these:
-      non-empty string | object { moduleName, syntax?, name?, alias? }
+      non-empty string | object { moduleName: non-empty string, syntax?, name?: non-empty string, alias?: non-empty string }
       Details:
        * options.imports should be a non-empty string.
          -> Allows to use a string to describe an import.
          -> Read more at https://webpack.js.org/loaders/imports-loader/#string
-       * options.imports should be a non-empty string.
-         -> Allows to use a string to describe an import.
-         -> Read more at https://webpack.js.org/loaders/imports-loader/#string
        * options.imports should be an object:
-         object { moduleName, syntax?, name?, alias? }
+         object { moduleName: non-empty string, syntax?, name?: non-empty string, alias?: non-empty string }
          -> Allows to use an object to describe an import.
          -> Read more at https://webpack.js.org/loaders/imports-loader/#object
     * options.imports should be an array:
-      [non-empty string | object { moduleName, syntax?, name?, alias? }, ...] (should not have fewer than 1 item)"
+      [non-empty string | object { moduleName: non-empty string, syntax?, name?: non-empty string, alias?: non-empty string }, ...] (should not have fewer than 1 item)"
 `;
 
 exports[`validate options should throw an error on the "type" option with "" value 1`] = `
@@ -246,27 +234,27 @@ exports[`validate options should throw an error on the "wrapper" option with "/t
 exports[`validate options should throw an error on the "wrapper" option with "[""]" value 1`] = `
 "Invalid options object. Imports Loader has been initialized using an options object that does not match the API schema.
  - options.wrapper should be one of these:
-   boolean | non-empty string | object { thisArg, args? }
+   boolean | non-empty string | object { thisArg: non-empty string, args? }
    -> Closes the module code in a function with a given 'thisArg' and 'args'
    -> Read more at https://webpack.js.org/loaders/imports-loader/#wrapper
    Details:
     * options.wrapper should be a boolean.
     * options.wrapper should be a non-empty string.
     * options.wrapper should be an object:
-      object { thisArg, args? }"
+      object { thisArg: non-empty string, args? }"
 `;
 
 exports[`validate options should throw an error on the "wrapper" option with "[]" value 1`] = `
 "Invalid options object. Imports Loader has been initialized using an options object that does not match the API schema.
  - options.wrapper should be one of these:
-   boolean | non-empty string | object { thisArg, args? }
+   boolean | non-empty string | object { thisArg: non-empty string, args? }
    -> Closes the module code in a function with a given 'thisArg' and 'args'
    -> Read more at https://webpack.js.org/loaders/imports-loader/#wrapper
    Details:
     * options.wrapper should be a boolean.
     * options.wrapper should be a non-empty string.
     * options.wrapper should be an object:
-      object { thisArg, args? }"
+      object { thisArg: non-empty string, args? }"
 `;
 
 exports[`validate options should throw an error on the "wrapper" option with "{"thisArg":"window","args":[1,"bar"]}" value 1`] = `
@@ -277,7 +265,7 @@ exports[`validate options should throw an error on the "wrapper" option with "{"
 exports[`validate options should throw an error on the "wrapper" option with "{"thisArg":"window","args":true}" value 1`] = `
 "Invalid options object. Imports Loader has been initialized using an options object that does not match the API schema.
  - options.wrapper should be one of these:
-   boolean | non-empty string | object { thisArg, args? }
+   boolean | non-empty string | object { thisArg: non-empty string, args? }
    -> Closes the module code in a function with a given 'thisArg' and 'args'
    -> Read more at https://webpack.js.org/loaders/imports-loader/#wrapper
    Details:
@@ -298,14 +286,14 @@ exports[`validate options should throw an error on the "wrapper" option with "{"
 exports[`validate options should throw an error on the "wrapper" option with "{"unknown":true}" value 1`] = `
 "Invalid options object. Imports Loader has been initialized using an options object that does not match the API schema.
  - options.wrapper should be one of these:
-   boolean | non-empty string | object { thisArg, args? }
+   boolean | non-empty string | object { thisArg: non-empty string, args? }
    -> Closes the module code in a function with a given 'thisArg' and 'args'
    -> Read more at https://webpack.js.org/loaders/imports-loader/#wrapper
    Details:
     * options.wrapper misses the property 'thisArg'. Should be:
       non-empty string
     * options.wrapper has an unknown property 'unknown'. These properties are valid:
-      object { thisArg, args? }"
+      object { thisArg: non-empty string, args? }"
 `;
 
 exports[`validate options should throw an error on the "wrapper" option with "{}" value 1`] = `

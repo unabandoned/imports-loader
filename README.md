@@ -1,17 +1,11 @@
-<div align="center">
-  <a href="https://github.com/webpack/webpack">
-    <img width="200" height="200" src="https://webpack.js.org/assets/icon-square-big.svg">
-  </a>
-</div>
+# @unabandoned/imports-loader
 
-[![npm][npm]][npm-url]
-[![node][node]][node-url]
-[![tests][tests]][tests-url]
-[![cover][cover]][cover-url]
-[![discussion][discussion]][discussion-url]
-[![size][size]][size-url]
-
-# imports-loader
+A maintained fork of [`imports-loader`](https://github.com/webpack/imports-loader),
+which webpack deprecated and archived in 2026. It is kept alive in the
+[`unabandoned`](https://github.com/unabandoned) org because projects of ours still
+shim third-party modules with it. The loader's behaviour is unchanged; the fork
+drops the abandoned `strip-comments` dependency (the `"use strict"` check now
+skips leading comments itself) and requires Node.js >= 22.12.
 
 The imports loader allows you to use modules that depend on specific global variables.
 
@@ -44,35 +38,14 @@ Two notes on the migration. `ProvidePlugin` is the better answer wherever the mo
 
 ## Getting Started
 
-To begin, you'll need to install `imports-loader`:
+To begin, install it under the `imports-loader` name, so `loader: "imports-loader"`
+and `imports-loader?…!` requests keep resolving:
 
 ```console
-npm install imports-loader --save-dev
+npm install imports-loader@npm:@unabandoned/imports-loader --save-dev
 ```
 
-or
-
-```console
-yarn add -D imports-loader
-```
-
-or
-
-```console
-pnpm add -D imports-loader
-```
-
-Given you have this file:
-
-**example.js**
-
-```js
-$("img").doSomeAwesomeJqueryPluginStuff();
-```
-
-Then you can inject the `jquery` value into the module by configuring the `imports-loader` using two approaches.
-
-### Inline
+## Inline
 
 The `|` or `%20` (space) allow to separate the `syntax`, `moduleName`, `name` and `alias` of import.
 The documentation and syntax examples can be read [here](#syntax).
@@ -512,7 +485,7 @@ import { lib2_method_2 as lib_2_method_2_alias } from "lib_2";
 #### `array`
 
 Allow to specify multiple imports.
-Each item can be either a [`string`](https://github.com/webpack/imports-loader#string) or an [`object`](https://github.com/webpack/imports-loader#object).
+Each item can be either a [`string`](#string) or an [`object`](#object).
 
 ##### Examples
 
@@ -871,26 +844,6 @@ const define = false; /* Disable AMD for misbehaving libraries */
 // ...
 ```
 
-## Contributing
-
-We welcome contributions!
-If you’re interested in helping improve this loader, please take a moment to read our contributing guidelines.
-
-[CONTRIBUTING](https://github.com/webpack/imports-loader?tab=contributing-ov-file#contributing)
-
 ## License
 
 [MIT](./LICENSE)
-
-[npm]: https://img.shields.io/npm/v/imports-loader.svg
-[npm-url]: https://www.npmjs.com/package/imports-loader
-[node]: https://img.shields.io/node/v/imports-loader.svg
-[node-url]: https://nodejs.org
-[tests]: https://github.com/webpack/imports-loader/workflows/imports-loader/badge.svg
-[tests-url]: https://github.com/webpack/imports-loader/actions
-[cover]: https://codecov.io/gh/webpack/imports-loader/branch/main/graph/badge.svg
-[cover-url]: https://codecov.io/gh/webpack/imports-loader
-[discussion]: https://img.shields.io/github/discussions/webpack/webpack
-[discussion-url]: https://github.com/webpack/webpack/discussions
-[size]: https://packagephobia.now.sh/badge?p=imports-loader
-[size-url]: https://packagephobia.now.sh/result?p=imports-loader

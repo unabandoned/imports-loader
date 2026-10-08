@@ -1,6 +1,6 @@
-import path from "node:path";
+"use strict";
 
-import strip from "strip-comments";
+const path = require("node:path");
 
 const matchRelativePath = /^\.\.?[/\\]/;
 
@@ -62,8 +62,33 @@ function forError(item) {
     : `\n${JSON.stringify(item, null, " ")}\n`;
 }
 
+// Skip the whitespace and comments that may precede a directive.
+// Only the head of the source matters for a "use strict" prologue, so there is
+// no need to strip comments from the whole module (which strip-comments did).
+function skipLeadingTrivia(source) {
+  let index = 0;
+
+  for (;;) {
+    while (index < source.length && /\s/.test(source[index])) {
+      index += 1;
+    }
+
+    if (source.startsWith("//", index)) {
+      const end = source.indexOf("\n", index);
+
+      index = end === -1 ? source.length : end + 1;
+    } else if (source.startsWith("/*", index)) {
+      const end = source.indexOf("*/", index + 2);
+
+      index = end === -1 ? source.length : end + 2;
+    } else {
+      return source.slice(index);
+    }
+  }
+}
+
 function sourceHasUseStrict(source) {
-  const str = strip(source).trim();
+  const str = skipLeadingTrivia(source);
 
   return str.startsWith("'use strict'") || str.startsWith('"use strict"');
 }
@@ -381,4 +406,4 @@ function renderImports(loaderContext, type, moduleName, imports) {
   return code;
 }
 
-export { getImports, renderImports, sourceHasUseStrict };
+module.exports = { getImports, renderImports, sourceHasUseStrict };

@@ -357,7 +357,11 @@ var someCode = {
 "
 `;
 
-exports[`loader should work and union "default" with "named": warnings 1`] = `[]`;
+exports[`loader should work and union "default" with "named": warnings 1`] = `
+[
+  "ModuleDependencyWarning: export 'lib_method' (imported as 'lib_method') was not found in 'lib_1' (possible exports: default)",
+]
+`;
 
 exports[`loader should work and union "default" with "namespace": errors 1`] = `[]`;
 
@@ -390,7 +394,13 @@ var someCode = {
 "
 `;
 
-exports[`loader should work with "default" and "named" imports": warnings 1`] = `[]`;
+exports[`loader should work with "default" and "named" imports": warnings 1`] = `
+[
+  "ModuleDependencyWarning: export 'lib2_method_1' (imported as 'lib2_method_1') was not found in 'lib_2' (possible exports: default)",
+  "ModuleDependencyWarning: export 'lib2_method_2' (imported as 'lib_2_method_2_short') was not found in 'lib_2' (possible exports: default)",
+  "ModuleDependencyWarning: export 'lib1_method' (imported as 'lib1_method') was not found in 'lib_1' (possible exports: default)",
+]
+`;
 
 exports[`loader should work with "default" and "namespace" imports": errors 1`] = `[]`;
 
@@ -503,7 +513,11 @@ var someCode = {
 "
 `;
 
-exports[`loader should work with "named" and "side-effects" imports: warnings 1`] = `[]`;
+exports[`loader should work with "named" and "side-effects" imports: warnings 1`] = `
+[
+  "ModuleDependencyWarning: export 'lib_2' (imported as 'lib_2') was not found in 'lib_2' (possible exports: default)",
+]
+`;
 
 exports[`loader should work with "named" imports: errors 1`] = `[]`;
 
@@ -518,7 +532,11 @@ var someCode = {
 "
 `;
 
-exports[`loader should work with "named" imports: warnings 1`] = `[]`;
+exports[`loader should work with "named" imports: warnings 1`] = `
+[
+  "ModuleDependencyWarning: export 'lib_1_name' (imported as 'lib_1_name') was not found in 'lib_1' (possible exports: default)",
+]
+`;
 
 exports[`loader should work with "namespace" imports: errors 1`] = `[]`;
 
@@ -565,7 +583,11 @@ var someCode = {
 "
 `;
 
-exports[`loader should work with "side-effects" and "named" imports: warnings 1`] = `[]`;
+exports[`loader should work with "side-effects" and "named" imports: warnings 1`] = `
+[
+  "ModuleDependencyWarning: export 'lib_2' (imported as 'lib_2') was not found in 'lib_2' (possible exports: default)",
+]
+`;
 
 exports[`loader should work with "side-effects" and "namespace" imports: errors 1`] = `[]`;
 
@@ -764,7 +786,12 @@ var someCode = {
 "
 `;
 
-exports[`loader should work with a string syntax using ES modules: warnings 1`] = `[]`;
+exports[`loader should work with a string syntax using ES modules: warnings 1`] = `
+[
+  "ModuleDependencyWarning: export 'lib2_method_1' (imported as 'lib2_method_1') was not found in 'lib_2' (possible exports: default)",
+  "ModuleDependencyWarning: export 'lib2_method_2' (imported as 'lib_2_method_2_short') was not found in 'lib_2' (possible exports: default)",
+]
+`;
 
 exports[`loader should work with a string value with spaces: errors 1`] = `[]`;
 
@@ -840,7 +867,11 @@ var someCode = {
 "
 `;
 
-exports[`loader should work with array of objects and strings: warnings 1`] = `[]`;
+exports[`loader should work with array of objects and strings: warnings 1`] = `
+[
+  "ModuleDependencyWarning: export 'lib_2_name' (imported as 'lib_2_name') was not found in 'lib_2' (possible exports: default)",
+]
+`;
 
 exports[`loader should work with array of strings: errors 1`] = `[]`;
 
@@ -999,7 +1030,13 @@ var someCode = {
 "
 `;
 
-exports[`loader should work with multiple "named" imports from the one lib: warnings 1`] = `[]`;
+exports[`loader should work with multiple "named" imports from the one lib: warnings 1`] = `
+[
+  "ModuleDependencyWarning: export 'lib_2' (imported as 'lib_2') was not found in 'lib_2' (possible exports: default)",
+  "ModuleDependencyWarning: export 'lib_3' (imported as 'alias') was not found in 'lib_2' (possible exports: default)",
+  "ModuleDependencyWarning: export 'lib_4' (imported as 'lib_4') was not found in 'lib_2' (possible exports: default)",
+]
+`;
 
 exports[`loader should work with multiple "named" imports: errors 1`] = `[]`;
 
@@ -1015,7 +1052,13 @@ var someCode = {
 "
 `;
 
-exports[`loader should work with multiple "named" imports: warnings 1`] = `[]`;
+exports[`loader should work with multiple "named" imports: warnings 1`] = `
+[
+  "ModuleDependencyWarning: export 'lib_2' (imported as 'lib_2') was not found in 'lib_2' (possible exports: default)",
+  "ModuleDependencyWarning: export 'lib_3' (imported as 'alias') was not found in 'lib_2' (possible exports: default)",
+  "ModuleDependencyWarning: export 'lib_4' (imported as 'lib_4') was not found in 'lib_3' (possible exports: default)",
+]
+`;
 
 exports[`loader should work with multiple "namespace" imports: errors 1`] = `[]`;
 
@@ -1095,7 +1138,11 @@ var someCode = {
 "
 `;
 
-exports[`loader should work with relative requests: warnings 1`] = `[]`;
+exports[`loader should work with relative requests: warnings 1`] = `
+[
+  "ModuleDependencyWarning: export 'lib_2_name' (imported as 'lib_2_name') was not found in './lib_2' (possible exports: default)",
+]
+`;
 
 exports[`loader should work with the "additionalCode" option: errors 1`] = `[]`;
 

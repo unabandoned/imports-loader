@@ -3,13 +3,14 @@
   Author Tobias Koppers @sokra
 */
 
-import schema from "./options.json";
+"use strict";
 
-import { getImports, renderImports, sourceHasUseStrict } from "./utils";
+const schema = require("./options.json");
+const { getImports, renderImports, sourceHasUseStrict } = require("./utils");
 
 const HEADER = "/*** IMPORTS FROM imports-loader ***/\n";
 
-export default function loader(content, sourceMap) {
+function loader(content, sourceMap) {
   const options = this.getOptions(schema);
   const type = options.type || "module";
   const callback = this.async();
@@ -115,3 +116,5 @@ export default function loader(content, sourceMap) {
 
   callback(null, `${importsCode}\n${content}${codeAfterModule}`, sourceMap);
 }
+
+module.exports = loader;
