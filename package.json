@@ -1,6 +1,6 @@
 {
   "name": "@unabandoned/imports-loader",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "description": "imports loader module for webpack",
   "keywords": [
     "webpack"

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](https://github.com/unabandoned/imports-loader/compare/imports-loader-v5.0.0...imports-loader-v5.1.0) (2026-10-08)
+
+
+### Features
+
+* onboard as @unabandoned/imports-loader ([#1](https://github.com/unabandoned/imports-loader/issues/1)) ([f1b5dc0](https://github.com/unabandoned/imports-loader/commit/f1b5dc0f3f2b12c33284709907c83859f4352e1a))
+
 ## [5.0.0](https://github.com/webpack-contrib/imports-loader/compare/v4.0.1...v5.0.0) (2024-01-16)
 
 
