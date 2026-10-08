@@ -1,0 +1,28 @@
+schema: 1
+
+package: "@unabandoned/imports-loader"
+
+upstream:
+  repo: webpack/imports-loader
+  reason: "deprecated and archived by webpack in September 2026; last release 5.0.0 (January 2024), carrying strip-comments, frozen since 2019"
+
+summary: >-
+  webpack loader that shims third-party modules by injecting imports,
+  additional code or a wrapper function in front of their source.
+
+why-forked: >-
+  CyberChef shims three of its bundled dependencies with it, and upstream was
+  archived while depending on strip-comments, itself abandoned since 2019. That
+  dependency only served a leading "use strict" check, which the fork now does
+  in-tree, leaving source-map-js (maintained) as the one runtime dependency.
+
+used-by:
+  - consumer: TheTechNetwork/CyberChef
+    purpose: >-
+      shims node-forge (additionalCode "var jQuery = false;" so it skips its
+      jQuery plugin), bootstrap-material-design (imports Popper) and
+      blueimp-load-image (requires min-document as document) in the web build
+
+status: active
+
+tags: [webpack, loader, shimming, build-tooling]

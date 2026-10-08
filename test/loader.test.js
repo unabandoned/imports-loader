@@ -1,15 +1,21 @@
-import path from "node:path";
+"use strict";
 
-import { SourceMapConsumer } from "source-map-js";
+const path = require("node:path");
+const { describe, it } = require("node:test");
 
-import {
+const { SourceMapConsumer } = require("source-map-js");
+
+const {
   compile,
   getCompiler,
   getErrors,
   getModuleSource,
   getWarnings,
-} from "./helpers";
-import readAsset from "./helpers/readAsset";
+  readAsset,
+} = require("./helpers");
+const { createExpect } = require("./helpers/expect");
+
+const expect = createExpect(__filename, "loader");
 
 describe("loader", () => {
   it("should work with a string value", async () => {
@@ -367,7 +373,7 @@ describe("loader", () => {
                   loader: path.resolve(__dirname, "../src"),
                   options: { imports: "lib_1" },
                 },
-                { loader: require.resolve("babel-loader") },
+                { loader: require.resolve("./helpers/identity-map-loader") },
               ],
             },
           ],

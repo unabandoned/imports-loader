@@ -1,4 +1,11 @@
-import { compile, getCompiler } from "./helpers";
+"use strict";
+
+const { describe, it } = require("node:test");
+
+const { compile, getCompiler } = require("./helpers");
+const { createExpect } = require("./helpers/expect");
+
+const expect = createExpect(__filename, "validate options");
 
 describe("validate options", () => {
   const tests = {
